@@ -5,7 +5,6 @@ defmodule Codestoriesstats.Repo do
 
   def init(_, config) do
     config = Confex.Resolver.resolve!(config)
-    url = System.get_env("DATABASE_URL")
-    if url, do: {:ok, [url: url] ++ config}, else: {:ok, config}
+    {:ok, config}
   end
 end
