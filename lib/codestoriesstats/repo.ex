@@ -1,4 +1,4 @@
-defmodule Codestoriesstats.Repo do
+defmodule CodestoriesstatsWeb.Repo do
   use Ecto.Repo,
     otp_app: :codestoriesstats,
     adapter: Ecto.Adapters.Postgres
