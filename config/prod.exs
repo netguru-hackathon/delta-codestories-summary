@@ -11,13 +11,15 @@ use Mix.Config
 # before starting your production server.
 config :codestoriesstats, CodestoriesstatsWeb.Endpoint,
   http: [:inet6, port: {:system, :integer, "PORT", 4000}],
-  url: [scheme: "https", host: "codestories-stats.herokuapp.com", port: {:system, "PORT"}],
+  url: [scheme: "https", host: "codestories-stats.herokuapp.com", port: System.get_env("PORT")],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
   cache_static_manifest: "priv/static/cache_manifest.json",
-  secret_key_base: {:system, "SECRET_KEY_BASE"}
-  
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
+
 # Do not print debug messages in production
-config :logger, level: :info# Configure your database
+config :logger, level: :info
+
+# Configure your database
 
 config :codestoriesstats, CodestoriesstatsWeb.Repo,
   url: System.get_env("DATABASE_URL"),
