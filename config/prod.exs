@@ -23,5 +23,5 @@ config :logger, level: :info
 
 config :codestoriesstats, Codestoriesstats.Repo,
   url: {:system, "DATABASE_URL"},
-  pool_size: {:system, :integer, "POOL_SIZE", "10"},
+  pool_size: {:system, :integer, "POOL_SIZE", 10},
   ssl: true
